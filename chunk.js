@@ -20,14 +20,18 @@ import slice from './slice.js'
  */
 function chunk(array, size) {
   size = Math.max(size, 0)
+  // 为本处取长度点赞，因为null 和 undefined 取值都会报错，本处做法很巧妙
   const length = array == null ? 0 : array.length
+  // 对于不满足要求统一处理
   if (!length || size < 1) {
     return []
   }
+  // 尽量推迟变量声明位置
   let index = 0
   let resIndex = 0
   const result = new Array(Math.ceil(length / size))
 
+  // 为什么这么喜欢 while 。。。
   while (index < length) {
     result[resIndex++] = slice(array, index, (index += size))
   }

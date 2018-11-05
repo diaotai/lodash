@@ -12,6 +12,7 @@ import isFlattenable from './isFlattenable.js'
  * @returns {Array} Returns the new flattened array.
  */
 function baseFlatten(array, depth, predicate, isStrict, result) {
+  // 这种处理默认值的方式没见过 
   predicate || (predicate = isFlattenable)
   result || (result = [])
 
@@ -19,6 +20,8 @@ function baseFlatten(array, depth, predicate, isStrict, result) {
     return result
   }
 
+
+  // 递归处理用一个 参数来代表已有结果是个很好的选择，最好这个已有的参数是一个引用类型
   for (const value of array) {
     if (depth > 0 && predicate(value)) {
       if (depth > 1) {

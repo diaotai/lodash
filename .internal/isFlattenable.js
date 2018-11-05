@@ -11,6 +11,7 @@ const spreadableSymbol = Symbol.isConcatSpreadable
  * @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
  */
 function isFlattenable(value) {
+  // Symbol.isConcatSpreadable 用于定义数组或类数组面对 concat 是否展开， 对于类数组对象默认为 false
   return Array.isArray(value) || isArguments(value) ||
     !!(spreadableSymbol && value && value[spreadableSymbol])
 }

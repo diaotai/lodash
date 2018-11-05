@@ -21,6 +21,7 @@ function compact(array) {
 
   for (const value of array) {
     if (value) {
+      // 没大搞明白为什么这里不用 push，push 有什么缺陷吗
       result[resIndex++] = value
     }
   }
