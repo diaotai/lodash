@@ -44,10 +44,12 @@ function baseDifference(array, values, iteratee, comparator) {
     const computed = iteratee == null ? value : iteratee(value)
 
     value = (comparator || value !== 0) ? value : 0
+    // 本处的严格相等是在校验NaN,处理普通比较
     if (isCommon && computed === computed) {
       let valuesIndex = valuesLength
       while (valuesIndex--) {
         if (values[valuesIndex] === computed) {
+          // 第一次真的看到使用标签，学到了。如果前者包含后者没有的元素，则推入
           continue outer
         }
       }

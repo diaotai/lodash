@@ -23,6 +23,7 @@ import last from './last.js'
  * differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor)
  * // => [1.2]
  */
+// 其它地方正常，但是有一个最后的iteratee为字符串的情况应该是跑不通的，调试也没有结果
 function differenceBy(array, ...values) {
   let iteratee = last(values)
   if (isArrayLikeObject(iteratee)) {

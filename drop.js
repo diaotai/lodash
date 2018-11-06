@@ -22,6 +22,7 @@ import slice from './slice.js'
  * drop([1, 2, 3], 0)
  * // => [1, 2, 3]
  */
+// 用 splice 实现是不是更好些，不过本函数是返回一个新数组，我写的会是原数组的引用
 function drop(array, n=1) {
   const length = array == null ? 0 : array.length
   return length

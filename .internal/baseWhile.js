@@ -14,6 +14,7 @@ function baseWhile(array, predicate, isDrop, fromRight) {
   const { length } = array
   let index = fromRight ? length : -1
 
+  // 没见过这么花哨的 while 条件，不过在这里处理条件也是一个不错的办法，至少很简洁
   while ((fromRight ? index-- : ++index < length) &&
     predicate(array[index], index, array)) {}
 

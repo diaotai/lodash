@@ -23,10 +23,12 @@ import baseFindIndex from './.internal/baseFindIndex.js'
  * // => 2
  */
 function findLastIndex(array, predicate, fromIndex) {
+  // 这个 length 处理真的很漂亮， 不过这个也是动态类型语言所带来的问题导致的
   const length = array == null ? 0 : array.length
   if (!length) {
     return -1
   }
+  // 根据情况改变变量，而不是改变处理逻辑
   let index = length - 1
   if (fromIndex !== undefined) {
     index = fromIndex < 0

@@ -31,6 +31,7 @@ function baseFlatten(array, depth, predicate, isStrict, result) {
         result.push(...value)
       }
     } else if (!isStrict) {
+      // 这种做法的性能比push高吗？
       result[result.length] = value
     }
   }
